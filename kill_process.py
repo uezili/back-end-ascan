@@ -35,7 +35,7 @@ def kill_process():
 if __name__ == '__main__':
     password = input("Enter the superuser password: ")
 
-    pid_cod = show_pid()
+    pid_cod = get_pid()
     if pid_cod:
         kill_process()
     else:
