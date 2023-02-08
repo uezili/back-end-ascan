@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from rest_framework import viewsets
 from .models import Subscription, User, Status
-from .serializers import SubscriptionSerializer, UserSerializer, StatusSerializer
+from .serializer import SubscriptionSerializer, UserSerializer, StatusSerializer
 import pika
 
 
