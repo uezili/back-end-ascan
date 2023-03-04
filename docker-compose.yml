@@ -23,12 +23,3 @@ services:
     ports:
       - "15672:15672"
       - "5672:5672"
-
-#  celery:
-#    container_name: celery
-#    build: .
-#    command: celery -A myproject worker -l info
-#    volumes:
-#      - .:/app
-#    depends_on:
-#      - rabbitmq
