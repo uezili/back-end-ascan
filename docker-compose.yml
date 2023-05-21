@@ -2,7 +2,6 @@ version: '3'
 
 services:
   web:
-
     container_name: web-django
     restart: on-failure
     build: .
@@ -14,12 +13,27 @@ services:
     depends_on:
       - rabbitmq
   rabbitmq:
+    image: "rabbitmq:3.6-management-alpine"
+    hostname: rabbitmq
     container_name: rabbitmq
-    restart: on-failure
-    image: rabbitmq:3-management
-    environment:
-      - RABBITMQ_DEGFAULT_USER=guest
-      - RABBITMQ_DEGFAULT_PASS=guest
     ports:
-      - "15672:15672"
       - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "ascan"
+      RABBITMQ_DEFAULT_USER: "ascan"
+      RABBITMQ_DEFAULT_PASS: "ascan"
+    volumes:
+    - rabbitmqdata:/var/lib/rabbitmq/
+    - rabbitmqlog:/var/log/rabbitmq
+    networks:
+      - rabbitnetwork
+
+networks:
+  rabbitnetwork:
+    driver: bridge
+
+volumes:
+  rabbitmqdata:
+  rabbitmqlog:
+    driver: local
