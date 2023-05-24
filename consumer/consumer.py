@@ -1,21 +1,20 @@
-import json
-import pika as pk
+import pika
+from logging import warning
 
 
-class SubscriptionProcessor:
-    def __init__(self):
-        self._connection = pk.BlockingConnection(
-            pk.ConnectionParameters(host='rabbitmq', port='5672'))
-        self._channel = self._connection.channel()
-        self._channel.queue_declare(queue='subscriptions')
+credentials = pika.PlainCredentials("ascan", "ascan")
+connection = pika.BlockingConnection(
+    pika.ConnectionParameters('rabbitmq', 5672, '/', credentials))
+channel = connection.channel()
 
-    def start_consuming(self):
-        self._channel.basic_consume(
-            queue='subscriptions', on_message_callback=self._on_message, auto_ack=True)
-        self._channel.start_consuming()
+channel.queue_declare(queue='report')
 
-    def _on_message(self, channel, method, properties, body):
-        message = json.loads(body)
-        event_type = message['event_type']
-        data = message['data']
-        print(event_type, data)
+
+def callback(ch, method, properties, body):
+    warning(f"[x] Received {body}")
+
+
+channel.basic_consume(
+    queue="report", on_message_callback=callback, auto_ack=True)
+
+warning('[*] waiting for messages. To exit press CTRL+C.')
