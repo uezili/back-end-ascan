@@ -17,13 +17,6 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from api import views
-# from api.consumer import SubscriptionProcessor
-
-# try:
-#     process = SubscriptionProcessor()
-#     process.start_consuming()
-# except:
-#     print("Estou aqui no urls.py")
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet, basename="User")
