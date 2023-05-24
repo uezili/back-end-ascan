@@ -27,8 +27,6 @@ services:
     volumes:
     - rabbitmqdata:/var/lib/rabbitmq/
     - rabbitmqlog:/var/log/rabbitmq
-    networks:
-      - rabbitnetwork
 
   consumer:
     hostname: consumer
