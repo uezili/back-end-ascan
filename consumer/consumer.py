@@ -1,21 +1,21 @@
-import pika as pk
+import pika
 from logging import warning
 
 
-credentials = pk.PlainCredentials("ascan", "ascan")
-connection = pk.BlockingConnection(
-    pk.ConnectionParameters('rabbitmq', 5672, '/', credentials))
+credentials = pika.PlainCredentials("ascan", "ascan")
+connection = pika.BlockingConnection(
+    pika.ConnectionParameters('rabbitmq', 5672, '/', credentials))
 channel = connection.channel()
 
-channel.queue_declare(queue='report')
+channel.queue_declare(queue='event_history')
 
 
 def callback(ch, method, properties, body):
-    warning(f"[x] Received {body}")
+    warning(f" [x] Received  {body}")
 
 
 channel.basic_consume(
-    queue="report", on_message_callback=callback, auto_ack=True)
+    'event_history', callback, auto_ack=True)
 
-warning('[*] waiting for messages. To exit press CTRL+C.')
+warning(' [*] Waiting for messages. To exit press CTRL+C')
 channel.start_consuming()
