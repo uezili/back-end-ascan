@@ -1,6 +1,6 @@
 FROM python:3.9-alpine3.17
 
-COPY ./consumer /hover/receiver
+COPY ./consumer /home/consumer/
 WORKDIR /home/consumer/
 
 COPY ./requirements.txt /tmp/requirements.txt
