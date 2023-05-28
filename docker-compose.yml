@@ -12,6 +12,7 @@ services:
       - "8000:8000"
     depends_on:
       - rabbitmq
+
   rabbitmq:
     image: "rabbitmq:3.6-management-alpine"
     hostname: rabbitmq
@@ -26,12 +27,16 @@ services:
     volumes:
     - rabbitmqdata:/var/lib/rabbitmq/
     - rabbitmqlog:/var/log/rabbitmq
-    networks:
-      - rabbitnetwork
 
-networks:
-  rabbitnetwork:
-    driver: bridge
+  consumer:
+    hostname: consumer
+    container_name: consumer
+    build:
+      context: .
+      dockerfile: ./consumer/Dockerfile
+    depends_on:
+      - rabbitmq
+    restart: on-failure
 
 volumes:
   rabbitmqdata:
