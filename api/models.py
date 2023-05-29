@@ -40,7 +40,7 @@ class EventHistory(models.Model):
     def _str_(self):
         return self.type
 
-class SendMessager(models.Model):
+class SendMessage(models.Model):
     body = models.TextField(255)
 
     def _str_(self):
