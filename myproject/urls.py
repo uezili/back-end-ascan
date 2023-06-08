@@ -24,14 +24,10 @@ router.register(r'users', views.UserViewSet, basename="User")
 router.register(r'subscription', views.SubscriptionViewSet,
                 basename="Subscription")
 router.register(r'status', views.StatusViewSet, basename="Status")
-# router.register(r'send-message', views.SendMessageView, basename="Send-Message")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls')),
-    # path('send_message/', send_message, name='send_message'),
-
     path('send-message/', SendMessageView.as_view(), name='send_message'),
-
 ]
