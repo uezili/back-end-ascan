@@ -17,15 +17,21 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from api import views
+from api.views import SendMessageView
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet, basename="User")
 router.register(r'subscription', views.SubscriptionViewSet,
                 basename="Subscription")
 router.register(r'status', views.StatusViewSet, basename="Status")
+# router.register(r'send-message', views.SendMessageView, basename="Send-Message")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls')),
+    # path('send_message/', send_message, name='send_message'),
+
+    path('send-message/', SendMessageView.as_view(), name='send_message'),
+
 ]
