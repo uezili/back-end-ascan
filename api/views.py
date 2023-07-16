@@ -3,6 +3,7 @@ from .models import Subscription, User, Status
 from rest_framework.response import Response
 from rest_framework import status
 from .serializer import SubscriptionSerializer, UserSerializer, StatusSerializer
+from django.core.exceptions import ObjectDoesNotExist
 from django.http import Http404
 
 import pika
@@ -67,10 +68,11 @@ class SendMessageView(APIView):
             status_name = 'active'
 
             user = User.objects.get(id=data['user_id'])
-            status = Status.objects.get(name='active')
-            
+            status = Status.objects.create(name=status_name)
+
             subscription = Subscription.objects.create(user_id=user, status_id=status)
             EventHistory.objects.create(subscription_id=subscription, type='SUBSCRIPTION_PURCHASED')
+            
             return Response({"success": "Register successfully."})
 
         except User.DoesNotExist:
