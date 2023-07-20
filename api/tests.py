@@ -3,9 +3,9 @@ from django.test import TestCase
 # Create your tests here.
 
 
-from .serializer import  UserSerializer
+from .serializer import UserSerializer
 
-class SendMessageViewTestCase(TestCase):
+class UserSerializerTestCase(TestCase):
 
     def test_user_serializer(self):
         # Teste para verificar a serialização e desserialização adequada do UserSerializer
