@@ -89,3 +89,14 @@ class SendMessageView(APIView):
         
         except Subscription.DoesNotExist:
             raise Http404(f"Subscription not found: {data['subscription_id']}")
+
+    def _process_subscription_restarted(self, data):
+        try:
+            subscription = Subscription.objects.get(id=data['subscription_id'])
+            subscription.status_id = Status.objects.get(name='active')
+            subscription.save()
+
+            EventHistory.objects.create(subscription_id=subscription, type='SUBSCRIPTION_RESTARTED')
+        
+        except Subscription.DoesNotExist:
+            raise Http404(f"Subscription not found: {data['subscription_id']}")
