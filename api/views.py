@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework.status import HTTP_201_CREATED, HTTP_400_BAD_REQUEST
 from rest_framework.views import APIView
 
 from .models import EventHistory, User, Subscription, Status
@@ -33,7 +33,7 @@ class SendMessageView(APIView):
         body = request.data
 
         if not body:
-            return Response({"error": "Field body is none."}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"error": "Field body is none."}, status=HTTP_400_BAD_REQUEST)
         
         event_type = str(request.data.get('event_type'))
         data = request.data.get('data')
@@ -45,7 +45,7 @@ class SendMessageView(APIView):
         elif event_type == 'SUBSCRIPTION_RESTARTED':
             self._process_subscription_restarted(data)
         else:
-            return Response({'error': 'Unknown event.'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'error': 'Unknown event.'}, status=HTTP_400_BAD_REQUEST)
         
         credentials = pika.PlainCredentials("ascan", "ascan")
         connection = pika.BlockingConnection(
@@ -59,8 +59,8 @@ class SendMessageView(APIView):
         channel.basic_publish(exchange='event_history', routing_key="", body=json.dumps(body))
 
         connection.close()
-
-        return Response({"success": "Message sent successfully."}, status=status.HTTP_201_CREATED)
+        
+        return Response({"success": "Message sent successfully."}, status=HTTP_201_CREATED)
 
     def _process_subscription_purchased(self, data):
         try:
@@ -72,8 +72,7 @@ class SendMessageView(APIView):
 
             subscription = Subscription.objects.create(user_id=user, status_id=status)
             EventHistory.objects.create(subscription_id=subscription, type='SUBSCRIPTION_PURCHASED')
-            
-            return Response({"success": "Register successfully."})
+            return Response({"success": "Register successfully."}, status=HTTP_201_CREATED)
 
         except User.DoesNotExist:
             raise Http404(f"User not found: {user_id}")
