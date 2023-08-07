@@ -60,7 +60,7 @@ _Registre tudo_: testes que forem executados, idéias que gostaria de implementa
 
 ## Modelo do Banco de Dados
 
-![Modelo do banco de dados](assets/mer.png)
+![Modelo do banco de dados](assets/databese.png)
 
 ## Execução
 
@@ -77,3 +77,23 @@ _Dicas_:
 - Aprenda o máximo possível;
 - Se divirta o máximo possível;
 - Em caso de dúvidas, pergunte.
+
+## Rodando os testes
+
+Para rodar os testes, rode o seguinte comando:
+
+```bash
+  docker-composer run web manage.py test
+```
+
+Para gerar os relatorio, rode o seguinte comando:
+
+```bash
+  docker-composer run web coverage run manage.py test
+```
+
+Para rodar os relatorio em html, rode o seguinte comando:
+
+```bash
+  docker-composer run web coverage html
+```
