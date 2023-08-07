@@ -4,7 +4,9 @@
 
 Desenvolver um serviço de atualização das assinaturas dos usuários. O arquiteto veio com o seguinte design para a aplicação que será desenvolvida:
 
-![Design](assets/design.png)
+<div align="center">
+      <img width="tamanho da imagem" title="titulo da imagem" src="assets/design.png"/>
+</div>
 
 Algumas notificações foram definidas para que o serviço execute as ações sobre as assinaturas dos clientes.
 
