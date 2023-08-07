@@ -33,19 +33,18 @@ Para rodar os relatorio em html, rode o seguinte comando:
   docker-composer run web coverage html
 ```
 
+# Rotas
 
-## Documentação da API
 
-#### Retorna todos os itens
 
-| Notificações             | Descrição         |
-| ------------------------ | ----------------- |
+| Nome             | Caminho                              |
+| :---------------: | :------------------------------------: |
 | `Admin`| http://localhost:8000/admin/ |
 | `Users` | http://localhost:8000/users/ |
 | `Send Message` | http://localhost:8000/send-massage/ |
 | `Swagger Documentation` | http://localhost:8000/swagger |
 
-# Modelo de json para enviar requisição
+# Padão de json para enviar requisição
 ### SUBSCRIPTION PURCHASED 
 ```
 {
