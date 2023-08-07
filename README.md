@@ -3,7 +3,10 @@
 Este é um desafio proposto pelo programa de de estagiários do Instituto Atlântico na trilha de Backend. Neste desafio foi desenvolvido uma API para controle de assinatura de um sistema de streming.
 
 # Indice
-indice aqui 
+ [Página de Desafio](DESAFIO.md)
+- [Outra Página](outrapagina.md)
+- [Mais uma Página](maisumapagina.md)
+
 # Tecnologias Utilizadas
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
