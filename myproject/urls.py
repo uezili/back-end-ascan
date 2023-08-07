@@ -26,10 +26,8 @@ schema_view = get_schema_view(
     openapi.Info(
         title="API Documentation",
         default_version='v1',
-        description="Your API description",
-        terms_of_service="https://www.example.com/terms/",
-        contact=openapi.Contact(email="contact@example.com"),
-        license=openapi.License(name="Your License"),
+        description="API: serviço de atualização das assinaturas dos usuários em um serviço de streaming.",
+        contact=openapi.Contact(email="weslmaciel@gmail.com"),
     ),
     public=True,
     permission_classes=(permissions.AllowAny,),
