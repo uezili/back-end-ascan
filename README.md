@@ -4,11 +4,9 @@ Este é um desafio proposto pelo programa de de estagiários do Instituto Atlân
 
 # Indice
 - [Desafio](DESAFIO.md)
-- [Como Rodar e estrair relatorios](COMMANDS.md)
-- [Design Pattern](#design-pattern)
+- [Como Rodar e estrair relatorios](INFO.md)
 
-# Design Pattern
-## Padrão de Design do Django Rest Framework (DRF)
+# Padrão de Design do Django Rest Framework (DRF)
 
 O Django Rest Framework (DRF) é uma estrutura poderosa para criar APIs RESTful em Django. Ele segue o padrão de design Model-View-Serializer (MVS), que é uma extensão do padrão Model-View-Controller (MVC) adaptada para APIs.
 
