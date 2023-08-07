@@ -1,5 +1,3 @@
-# Backend Ascan
-
 ## Desafio
 
 Desenvolver um serviço de atualização das assinaturas dos usuários. O arquiteto veio com o seguinte design para a aplicação que será desenvolvida:
