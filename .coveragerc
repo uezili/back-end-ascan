@@ -1,0 +1,5 @@
+[run]
+omit = *migration*, *venv*
+
+[report]
+show_missing = True
