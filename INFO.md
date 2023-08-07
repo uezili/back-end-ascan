@@ -44,3 +44,32 @@ Para rodar os relatorio em html, rode o seguinte comando:
 | `Users` | http://localhost:8000/users/ |
 | `Send Message` | http://localhost:8000/send-massage/ |
 | `Swagger Documentation` | http://localhost:8000/swagger |
+
+# Modelo de json para enviar requisição
+### SUBSCRIPTION PURCHASED 
+```
+{
+  "event_type": "SUBSCRIPTION_PURCHASED",
+  "data": {
+    "user_id": 1
+  }
+}
+```
+### SUBSCRIPTION CANCELED
+```
+{
+  "event_type": "SUBSCRIPTION_CANCELED",
+  "data": {
+    "subscription_id": 3
+  }
+}
+```
+### SUBSCRIPTION RESTARTED
+```
+{
+  "event_type": "SUBSCRIPTION_RESTARTED",
+  "data": {
+    "subscription_id": 3
+  }
+}
+```
