@@ -1,4 +1,20 @@
-# Rodando os testes
+# Comandos importantes do projeto
+
+### iniciar
+Para iniciar o projeto, rode o seguinte comando:
+
+```bash
+  docker-composer up
+```
+
+### Parar
+Para encerrar os contêiner, rode o seguinte comando:
+
+```bash
+  docker-composer down
+```
+
+## Rodando os testes
 Para rodar os testes, rode o seguinte comando:
 
 ```bash
