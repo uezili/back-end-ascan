@@ -78,7 +78,7 @@ _Dicas_:
 - Se divirta o máximo possível;
 - Em caso de dúvidas, pergunte.
 
-## Rodando os testes
+# Rodando os testes
 
 Para rodar os testes, rode o seguinte comando:
 
