@@ -4,7 +4,7 @@ Este é um desafio proposto pelo programa de de estagiários do Instituto Atlân
 
 # Indice
 - [Desafio](DESAFIO.md)
-- [Como Rodar e estrair relatorios](INFO.md)
+- [Como Rodar e extrair relatorios](INFO.md)
 
 # Padrão de Design do Django Rest Framework (DRF)
 
