@@ -1,6 +1,6 @@
 # Backend Ascan
 
-Este é um desafio proposto pelo programa de de estagiários do Instituto Atlântico na trilha de Backend. Neste desafio foi desenvolvido uma API para controle de assinatura de um sistema de streaming.
+Este é um desafio proposto pelo programa de estagiários do Instituto Atlântico na trilha de Backend. Neste desafio foi desenvolvido uma API para controle de assinatura de um sistema de streaming.
 
 # Indice
 - [Desafio](DESAFIO.md)
