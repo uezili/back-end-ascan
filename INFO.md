@@ -1,5 +1,5 @@
 # Comandos importantes do projeto
-> Obs: **Para testar essa API será necessário apenas com o docker e docker composer. Pois, os comandos serão rodados dentro do ambiente Docker.**
+> Obs: **Para testar essa API será necessário apenas com o Docker e Docker Composer, pois os comandos serão rodados dentro do ambiente Docker.**
 ### iniciar
 Para iniciar o projeto, rode o seguinte comando:
 
@@ -21,13 +21,13 @@ Para rodar os testes, rode o seguinte comando:
   docker-composer run web manage.py test
 ```
 
-Para gerar os relatorio, rode o seguinte comando:
+Para gerar os relatório, rode o seguinte comando:
 
 ```bash
   docker-composer run web coverage run manage.py test
 ```
 
-Para rodar os relatorio em html, rode o seguinte comando:
+Para rodar os relatório em html, rode o seguinte comando:
 
 ```bash
   docker-composer run web coverage html
@@ -46,7 +46,7 @@ Para rodar os relatorio em html, rode o seguinte comando:
 
 # Padão de json para enviar requisição
 ### SUBSCRIPTION PURCHASED 
-```
+```JSON
 {
   "event_type": "SUBSCRIPTION_PURCHASED",
   "data": {
@@ -55,7 +55,7 @@ Para rodar os relatorio em html, rode o seguinte comando:
 }
 ```
 ### SUBSCRIPTION CANCELED
-```
+```JSON
 {
   "event_type": "SUBSCRIPTION_CANCELED",
   "data": {
@@ -64,7 +64,7 @@ Para rodar os relatorio em html, rode o seguinte comando:
 }
 ```
 ### SUBSCRIPTION RESTARTED
-```
+```JSON
 {
   "event_type": "SUBSCRIPTION_RESTARTED",
   "data": {
